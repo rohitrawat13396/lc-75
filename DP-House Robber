@@ -1,0 +1,8 @@
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+
+        pmax, cmax = 0,0
+        for n in nums:
+            pmax,cmax = cmax, max(pmax + n, cmax)
+        return cmax
+            
