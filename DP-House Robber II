@@ -1,0 +1,13 @@
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        
+        def normalRobbing(nums):
+
+            cmax, pmax = 0,0
+            for n in nums:
+                pmax, cmax = cmax, max(pmax+n, cmax)
+            return cmax
+        if len(nums) == 1:
+            return nums[0]
+        
+        return max(normalRobbing(nums[:-1]),normalRobbing(nums[1:]))
